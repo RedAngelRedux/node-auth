@@ -15,7 +15,8 @@ const Login = ({ setToken }) => {
     const submitLogin = async (e) => {
         e.preventDefault();
 
-        let dbUrl = "http://localhost:5000/login";
+        // let dbUrl = "http://localhost:5000/login";
+        let dbUrl = "https://frozen-cove-12963.herokuapp.com/login";
 
         try {
             let status = await axios.post(
