@@ -16,7 +16,8 @@ const Login = ({ setToken }) => {
         e.preventDefault();
 
         // let dbUrl = "http://localhost:5000/login";
-        let dbUrl = "https://frozen-cove-12963.herokuapp.com/login";
+        // let dbUrl = "https://frozen-cove-12963.herokuapp.com/login";
+        let dbUrl = "/login/";
 
         try {
             let status = await axios.post(
@@ -37,7 +38,7 @@ const Login = ({ setToken }) => {
     };
 
     let location = useLocation();
-    return (loginStatus) ? <Redirect to={{pathname: "/messages",state: { from: location }}}/> : 
+    return (loginStatus) ? <Redirect to={{pathname: "/messages/",state: { from: location }}}/> : 
     (
     <div className="auth-wrapper">
         <div className="auth-inner">

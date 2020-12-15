@@ -31,7 +31,7 @@ const SignUp = () => {
         };
 
         try {
-            await axios.post("http://localhost:5000/users/", { ...newUser });
+            await axios.post("/users/", { ...newUser });
         } catch {
             console.log("Nope");
         }
