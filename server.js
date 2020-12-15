@@ -1,6 +1,4 @@
 const express = require("express");
-const logger = require("morgan");
-const dbLogger = require("mongo-morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -8,6 +6,7 @@ const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
 const messageRouter = require("./routes/messages");
 
+const path = require('path');
 
 require("dotenv").config();
 require("./config/db");
