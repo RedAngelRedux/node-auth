@@ -17,6 +17,7 @@ const Login = ({ setToken }) => {
 
         // let dbUrl = "http://localhost:5000/login";
         // let dbUrl = "https://frozen-cove-12963.herokuapp.com/login";
+        console.log(process.env.NODE_ENV);
         let dbUrl = "/login/";
 
         try {
