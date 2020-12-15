@@ -3,6 +3,7 @@ import { Redirect, useLocation, Link } from 'react-router-dom';
 import axios from "axios";
 
 import UserThreads from "./UserThreads";
+import { config } from "../../Constants";
 
 import logo from "../../images/logo.png";
 import "./messages.css";
@@ -24,7 +25,7 @@ const Messages = ({token}) => {
     useEffect( () => {
         let isSubscribed = true;
         const fetchData = async () => {
-            await axios.get("/messages/", { headers: {"auth-token": token }})
+            await axios.get(config.url.API_URL + "/messages/", { headers: {"auth-token": token }})
                         .then(response => isSubscribed ? setThreads(response.data) : null)
                         .catch(error => {
                             if(isSubscribed) {
@@ -40,7 +41,7 @@ const Messages = ({token}) => {
         console.log(userId);
         console.log(token);
         // await axios.post("http://localhost:5000/messages/u-convo",{ headers: {"auth-token": token}, data: { "partner": userId } })
-        await axios({method: "POST", url: "/messages/u-convo" , headers: {"auth-token": token}, data: { "partner": userId } })
+        await axios({method: "POST", url: config.url.API_URL + "/messages/u-convo" , headers: {"auth-token": token}, data: { "partner": userId } })
                     .then(response => {
                         setConversation(response.data);
                         console.log(response.data);
@@ -51,7 +52,7 @@ const Messages = ({token}) => {
     }
 
     let location = useLocation();
-    return (token === "") ?  <Redirect to={{pathname: "/sign-in",state: { from: location }}}/> :
+    return (token === "") ?  <Redirect to={{pathname: config.url.API_URL + "/sign-in",state: { from: location }}}/> :
     ( 
         <div className="message-board">
 

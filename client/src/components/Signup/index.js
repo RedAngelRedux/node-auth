@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 
 import logo from "../../images/logo.png";
+import { config } from "../../Constants";
 
 
 const SignUp = () => {
@@ -31,7 +32,7 @@ const SignUp = () => {
         };
 
         try {
-            await axios.post("/users/", { ...newUser });
+            await axios.post(config.url.API_URL + "/users/", { ...newUser });
         } catch {
             console.log("Nope");
         }
