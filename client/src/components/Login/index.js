@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, Redirect, useLocation } from "react-router-dom";
 
+import { config } from "../../Constants";
+
 import logo from "../../images/logo.png";
 
 const Login = ({ setToken }) => {
@@ -17,8 +19,7 @@ const Login = ({ setToken }) => {
 
         // let dbUrl = "http://localhost:5000/login";
         // let dbUrl = "https://frozen-cove-12963.herokuapp.com/login";
-        console.log(process.env.NODE_ENV);
-        let dbUrl = "/login/";
+        let dbUrl = config.url.API_URL + "/login/";
 
         try {
             let status = await axios.post(
